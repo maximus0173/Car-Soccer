@@ -8,6 +8,9 @@ I am planning to create a multiplayer mode in the future.<br/>
 For now, have fun playing against AI players.<br/>
 <br/>
 <br/>
+<img src="Media/TitleScreen.jpg" alt="Game title screen" />
+<br/>
+<br/>
 <ul>
 <li>Game Engine: Unity 2021.3.10f1 (URP - Universal Render Pipeline)</li>
 <li>Models: Created by author</li>
@@ -16,8 +19,9 @@ For now, have fun playing against AI players.<br/>
 </ul>
 <br/>
 <br/>
-<a href="https://twitter.com/maximus_173">https://twitter.com/maximus_173</a>
-<a href="https://www.youtube.com/@MaximusDev173">https://www.youtube.com/@MaximusDev173</a>
+<a href="https://twitter.com/maximus_173">https://twitter.com/maximus_173</a><br/>
+<a href="https://www.youtube.com/@MaximusDev173">https://www.youtube.com/@MaximusDev173</a><br/>
+<a href="https://play.unity.com/mg/other/webgl-6ha-1">You can play game on Unity Play</a>
 <br/>
 <br/>
 <strong>Acknowledgments</strong>
