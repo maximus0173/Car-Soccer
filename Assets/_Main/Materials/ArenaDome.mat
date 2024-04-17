@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3885758543262425546
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ArenaDome
+  m_Shader: {fileID: -6465566751694194690, guid: ade79a888f379ae499719248d0778553, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_5d46f39757af48f09ad5afd6b2c1c9eb:
+        m_Texture: {fileID: 2800000, guid: 716db99890fc3b14892386cd68075a74, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Vector1_03e284e3f88644aeab579460785f734b: 35
+    - Vector1_19cbf6db6b2647a39258a8434ea9bc9d: 20
+    - Vector1_2c8aa0fd7cba47409d82963e715e2e9f: 500
+    - Vector1_5b1fa441e0ec4b3ab8419df2aab4a182: 75
+    - Vector1_ddb1373d6d704ddc9b40e2e365f46dc1: 15
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - Color_8ed856294a3a438189b15d2bc4b53fd3: {r: 1, g: 0.5518558, b: 0, a: 0}
+    - Vector2_8ccffdf974204878a7939cf92680d328: {r: -0.02, g: 0.02, b: 0, a: 0}
+    - Vector2_af4335fdff284630a648b7cf5185e7f5: {r: 0.01, g: -0.01, b: 0, a: 0}
+    - Vector2_c550a58db95c4e6497c0eb8862c49d35: {r: 0.03, g: -0.03, b: 0, a: 0}
+  m_BuildTextureStacks: []
