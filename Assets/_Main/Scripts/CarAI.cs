@@ -16,8 +16,8 @@ public class CarAI : MonoBehaviour
     [SerializeField] private Transform ownGoalTransform;
 
     private Rigidbody ballRigidbody;
-    private float minRadius = 30f;
-    private float ownGoalRiskRadius = 200f;
+    private float minRadius = 20f;
+    private float ownGoalRiskRadius = 250f;
 
     private enum State
     {
@@ -136,7 +136,7 @@ public class CarAI : MonoBehaviour
         {
             Vector3 currLastPoint = this.pathPoints.Last();
             Vector3 newLastPoint = dubinsPath.waypoints.Last();
-            float minDistance = 2f;
+            float minDistance = 1f;
             if (Vector3.Distance(currLastPoint, newLastPoint) < minDistance)
             {
                 return;
@@ -222,6 +222,15 @@ public class CarAI : MonoBehaviour
             isAhead = true;
         }
 
+        // check if the line between car and goal is almost the same as the car forward direction
+        Vector3 ballToGoalDir = (this.targetGoalTransform.position - this.ballTransform.position).normalized;
+        float minAngleToGoal = 5f;
+        if (state == State.Attack && Mathf.Abs(Vector3.SignedAngle(transform.forward, ballToGoalDir, Vector3.up)) < minAngleToGoal)
+        {
+            destPos = this.ballTransform.position;
+            isAhead = true;
+        }
+
         // obstacle avoidance
         if (!isAhead && state == State.AvoidingObstacle && this.pathPointIndex >= 0)
         {
@@ -246,7 +255,7 @@ public class CarAI : MonoBehaviour
                 turn = -turn;
             }
             float speed = 100f;
-            float maxSpeedMinDistance = 20f;
+            float maxSpeedMinDistance = 30f;
             float maxSpeed = 300f;
             float minAngle = 10f;
             if (Mathf.Abs(angle) < minAngle && destDist > maxSpeedMinDistance)

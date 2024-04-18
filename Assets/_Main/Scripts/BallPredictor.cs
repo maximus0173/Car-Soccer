@@ -19,6 +19,7 @@ public class BallPredictor : MonoBehaviour
     private BallPredictedPoint[] rawPredictedPoints = new BallPredictedPoint[0];
     private BallPredictedPoint[] predictedPoints = new BallPredictedPoint[0];
     private float predictedTime;
+    private float simDeltaTime = 0.02f * 3f;    // 0.02s * 3 = 0.06s
 
     public BallPredictedPoint[] PredictedPoints { get => this.predictedPoints; }
     public float PredictedTime { get => this.predictedTime; }
@@ -27,7 +28,7 @@ public class BallPredictor : MonoBehaviour
     {
         this.ballRadius = this.ball.GetComponent<SphereCollider>().radius * this.ball.transform.localScale.y;
         float fullBallPredictionTime = 10f; // 10s
-        this.maxPredictionFrames = (int)(fullBallPredictionTime / Time.fixedDeltaTime);    // 10s / 0.02s = 500
+        this.maxPredictionFrames = (int)(fullBallPredictionTime / this.simDeltaTime);    // 10s / 0.02s = 500 | 10s / 0.06s = 166
         this.predictedFrames = this.maxPredictionFrames;
         this.rawPredictedPoints = new BallPredictedPoint[this.maxPredictionFrames];
         for (int i = 0; i < this.maxPredictionFrames; i++)
@@ -35,13 +36,13 @@ public class BallPredictor : MonoBehaviour
             this.rawPredictedPoints[i] = new BallPredictedPoint()
             {
                 frame = i,
-                time = Time.fixedDeltaTime * i,
+                time = this.simDeltaTime * i,
                 position = Vector3.zero,
                 isGrounded = false
             };
         }
         CreatePhysicsScene();
-        InvokeRepeating(nameof(PredictPosition), 0f, 3f);
+        InvokeRepeating(nameof(PredictPosition), 0f, 1f);
     }
 
     private void Update()
@@ -85,10 +86,10 @@ public class BallPredictor : MonoBehaviour
         {
             return;
         }
-        int stepPredictionFrames = 7;
+        int stepPredictionFrames = 7;   // 7 frames * 30 fps = 210 frames per second
         for (int i = 0; i < stepPredictionFrames; i++)
         {
-            physicsScene.Simulate(Time.fixedDeltaTime);
+            physicsScene.Simulate(this.simDeltaTime);
             BallPredictedPoint bpp = this.rawPredictedPoints[this.predictedFrames];
             bpp.position = this.simulatedBall.transform.position;
             bpp.isGrounded = IsSimulatedBallGrounded();
